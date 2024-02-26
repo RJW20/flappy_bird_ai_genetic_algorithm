@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "flappy-bird-ai"
+version = "0.1.0"
+description = "Application of the genetic algorithm to the game Flappy Bird."
+authors = ["RJW20"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+numpy = "^1.26.4"
+pygame = "^2.5.2"
+genetic_algorithm = { path = "genetic_algorithm_template/", develop = true }
+flappy_bird_app = { path = "flappy_bird_app/", develop = true }
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

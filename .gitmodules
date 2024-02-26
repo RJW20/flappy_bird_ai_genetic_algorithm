@@ -1,0 +1,6 @@
+[submodule "flappy_bird_app"]
+	path = flappy_bird_app
+	url = https://github.com/RJW20/flappy_bird_app.git
+[submodule "genetic_algorithm_template"]
+	path = genetic_algorithm_template
+	url = https://github.com/RJW20/genetic_algorithm_template.git
