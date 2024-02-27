@@ -3,7 +3,7 @@
 genetic_algorithm_settings = {
 
     #population properties
-    'population_size': 500,         #number of players in the population
+    'population_size': 1000,         #number of players in the population
     'creation_type': 'new',         #options are ['new', 'load']
     'load_folder': '',              #folder to load from if applicable
     'parents_folder': 'latest_genomes',           #folder to save parents of each generation to (for use with repopulation, will be overwritten each time)
@@ -15,7 +15,7 @@ genetic_algorithm_settings = {
     'history_value': 50,            #dependent on history_type: 'absolute' -> int: number to save, 'percentage' -> float: percentage to save 
 
     #genome properties
-    'structure': ((4, ), (2, 'sigmoid'), (1, 'sigmoid')),    #options for activation are ['sigmoid', 'relu', 'softmax', 'linear']
+    'structure': ((4, ), (1, 'sigmoid')),    #options for activation are ['sigmoid', 'relu', 'softmax', 'linear']
 
     #evolution properties
     'parent_percentage': 0.2,       #percentage of parents to repopulate the next generation from
