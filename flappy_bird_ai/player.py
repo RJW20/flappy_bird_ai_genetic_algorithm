@@ -10,7 +10,6 @@ class Player(Bird, BasePlayer):
     """Bird with a Genome to control its movements."""
 
     def __init__(self) -> None:
-        self.score: int = 0
         self.fitness: int = 0
         self.best_score: int = 0
         self.vision: np.ndarray
@@ -33,7 +32,7 @@ class Player(Bird, BasePlayer):
         """Feed the input into the Genome and turn the output into a valid move."""
         
         genome_output = self.genome.propagate(self.vision)
-        return round(genome_output[0], 1)      #jump if > 0.5 (sigmoid activation)
+        return round(genome_output[0])      #jump if > 0.5 (sigmoid activation)
 
     def empty_clone(self) -> BasePlayer:
         """Return a new instance of self's class without a genome."""
