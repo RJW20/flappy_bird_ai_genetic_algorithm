@@ -1,9 +1,13 @@
 from typing import Iterable, Any
+import random
 
 import pygame
+import numpy as np
 
 import flappy_bird_app.bird as BIRD
 import flappy_bird_app.pipe as PIPE
+from flappy_bird_app.pipe import Pipe
+from flappy_bird_app.pipes import Pipes, INTERVAL
 from genetic_algorithm import Population
 from .player import Player
 from .settings import genetic_algorithm_settings
@@ -76,7 +80,9 @@ def playback() -> None:
     
     #get and start the first birds
     birds = playback_pop.current_players
+    seed = random.randint(0,100)
     for bird in birds:
+        bird.pipes = PlaybackPipes(seed)
         bird.start_state()
 
     base_speed = 60
@@ -97,7 +103,9 @@ def playback() -> None:
                     if not playback_pop.is_champs:
                         playback_pop.new_gen(playback_pop.current_generation)
                     birds = playback_pop.current_players
+                    seed = random.randint(0,100)
                     for bird in birds:
+                        bird.pipes = PlaybackPipes(seed)
                         bird.start_state()
                     
                 elif event.key == pygame.K_LEFT and playback_pop.current_generation != 1:
@@ -105,7 +113,9 @@ def playback() -> None:
                     if not playback_pop.is_champs:
                         playback_pop.new_gen(playback_pop.current_generation)
                     birds = playback_pop.current_players
+                    seed = random.randint(0,100)
                     for bird in birds:
+                        bird.pipes = PlaybackPipes(seed)
                         bird.start_state()
 
                 elif event.key == pygame.K_j:
@@ -126,7 +136,9 @@ def playback() -> None:
         #restart them if all are dead
         if len(birds) == 0:
             birds = playback_pop.current_players
+            seed = random.randint(0,100)
             for bird in birds:
+                bird.pipes = PlaybackPipes(seed)
                 bird.start_state()
 
         #fill the screen to wipe last frame
@@ -171,6 +183,33 @@ def playback() -> None:
         clock.tick(base_speed * speed_multiplier) / 1000
 
     pygame.quit()
+
+
+class PlaybackPipes(Pipes):
+    """Extension of Population class which overloads the generation of new pipes
+    and sets a seed for generating their height."""
+
+    def __init__(self, seed:int) -> None:
+        super(PlaybackPipes, self).__init__()
+        self.generator = np.random.RandomState(seed)
+
+    def start_state(self) -> None:
+        super().start_state()
+        self.items[0].height = round(self.generator.uniform(PIPE.MIN_HEIGHT, 1 - PIPE.MIN_HEIGHT - PIPE.GAP) * 100) / 100
+
+    def update(self) -> None:
+        """Overload Pipes.update, appending pipes with height generated from a seed."""
+
+        for pipe in self.items:
+            pipe.update()
+
+        if (end_pipe_position := self.items[-1].position) < 1:
+            new_pipe = Pipe(end_pipe_position + INTERVAL)
+            new_pipe.height = round(self.generator.uniform(PIPE.MIN_HEIGHT, 1 - PIPE.MIN_HEIGHT - PIPE.GAP) * 100) / 100
+            self.items.append(new_pipe)
+
+        if self.items[0].position < self.items[0].width * -1:
+            self.items.popleft()   
 
 
 class PlaybackPopulation(Population):
