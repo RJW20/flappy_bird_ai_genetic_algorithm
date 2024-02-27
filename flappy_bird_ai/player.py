@@ -29,10 +29,10 @@ class Player(Bird, BasePlayer):
                                first_pipe.bottom_height - self.position]
 
     def think(self) -> int:
-        """Feed the input into the Genome and turn the output into a valid move."""
+        """Feed the vision into the Genome and turn the output into a valid move."""
         
         genome_output = self.genome.propagate(self.vision)
-        return round(genome_output[0])      #jump if > 0.5 (sigmoid activation)
+        return round(genome_output[0])      #move takes 0 or 1, genome_output~[0,1]
 
     def empty_clone(self) -> BasePlayer:
         """Return a new instance of self's class without a genome."""
