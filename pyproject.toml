@@ -14,6 +14,10 @@ genetic_algorithm = { path = "genetic_algorithm_template/", develop = true }
 flappy_bird_app = { path = "flappy_bird_app/", develop = true }
 
 
+[tool.poetry.scripts]
+main = "flappy_bird_ai.main:main"
+
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

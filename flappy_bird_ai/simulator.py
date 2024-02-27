@@ -4,8 +4,7 @@ from .player import Player
 def simulate(player: Player) -> Player:
     """Assign the player its fitness.
     
-    Run the player in its environment dependent on simulation_settings.
-    Collect stats and then calculate the fitness of the player and assign it.
+    Run the player in its environment and then calculate it's and assign it.
     """
 
     player.start_state()
