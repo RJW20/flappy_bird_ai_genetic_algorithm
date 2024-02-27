@@ -17,5 +17,6 @@ def simulate(player: Player) -> Player:
 
         fitness += 1
 
+    player.best_score = player.score
     player.fitness = fitness
     return player
