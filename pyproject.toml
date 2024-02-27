@@ -16,6 +16,7 @@ flappy_bird_app = { path = "flappy_bird_app/", develop = true }
 
 [tool.poetry.scripts]
 main = "flappy_bird_ai.main:main"
+playback = "flappy_bird_ai.playback:playback"
 
 
 [build-system]
