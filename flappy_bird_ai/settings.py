@@ -10,9 +10,9 @@ genetic_algorithm_settings = {
     'total_generations': 25,        #number of generations to run for
 
     #history properties
-    'history_folder': 'absolute',           #folder to permanently save the best of each generation too
-    'history_type': '50',             #options are ['none', 'champ', 'absolute', 'percentage', 'entire']
-    'history_value': 0,            #dependent on history_type: 'absolute' -> int: number to save, 'percentage' -> float: percentage to save 
+    'history_folder': 'history',           #folder to permanently save the best of each generation too
+    'history_type': 'absolute',             #options are ['none', 'champ', 'absolute', 'percentage', 'entire']
+    'history_value': 50,            #dependent on history_type: 'absolute' -> int: number to save, 'percentage' -> float: percentage to save 
 
     #genome properties
     'structure': ((4, ), (2, 'sigmoid'), (1, 'sigmoid')),    #options for activation are ['sigmoid', 'relu', 'softmax', 'linear']
