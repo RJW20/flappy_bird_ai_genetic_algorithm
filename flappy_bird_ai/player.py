@@ -10,6 +10,7 @@ class Player(Bird, BasePlayer):
     """Bird with a Genome to control its movements."""
 
     def __init__(self) -> None:
+        super(Player, self).__init__()
         self.fitness: int = 0
         self.best_score: int = 0
         self.vision: np.ndarray
@@ -23,10 +24,10 @@ class Player(Bird, BasePlayer):
         """
 
         first_pipe = self.pipes.items[0]
-        self.vision = np.array[first_pipe.position - self.x, 
+        self.vision = np.array([first_pipe.position - self.x, 
                                self.velocity,
                                self.position - first_pipe.height, 
-                               first_pipe.bottom_height - self.position]
+                               first_pipe.bottom_height - self.position])
 
     def think(self) -> int:
         """Feed the vision into the Genome and turn the output into a valid move."""
