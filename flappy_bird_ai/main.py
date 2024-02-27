@@ -40,8 +40,8 @@ def main() -> None:
     while population.current_generation <= total_generations:
 
         #run the players with multiprocessing
-        with Pool() as pool:
-            population.players = pool.imap_unordered(simulate, population.players, chunksize=1)
+        with Pool(2) as pool:
+            population.players = pool.map(simulate, population.players, chunksize=1)
 
         #print some stats
         print(f'\ngeneration: {population.current_generation}, champ\'s best score: {population.champ.best_score}, ' + 
