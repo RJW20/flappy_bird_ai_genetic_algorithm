@@ -4,6 +4,7 @@ import numpy as np
 
 from flappy_bird_app import Bird
 from genetic_algorithm import BasePlayer
+from flappy_bird_app.bird import MAX_VELOCITY
 
 
 class Player(Bird, BasePlayer):
@@ -23,11 +24,13 @@ class Player(Bird, BasePlayer):
         bottom of the pipe.
         """
 
-        first_pipe = self.pipes.items[0]
-        self.vision = np.array([first_pipe.position - self.x, 
-                               self.velocity,
-                               self.position - first_pipe.height, 
-                               first_pipe.bottom_height - self.position])
+        front_pipe = self.pipes.items[0]
+        if self.x - self.radius > front_pipe.position + front_pipe.width:
+            front_pipe = self.pipes.items[1]
+        self.vision = np.array([max((front_pipe.position - self.x)/(1 - self.x), 0), 
+                               self.velocity/MAX_VELOCITY,
+                               max(self.position - front_pipe.height,0), 
+                               max(front_pipe.bottom_height - self.position,0)])
 
     def think(self) -> int:
         """Feed the vision into the Genome and turn the output into a valid move."""
