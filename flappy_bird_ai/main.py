@@ -3,6 +3,7 @@ from multiprocessing import Pool
 from genetic_algorithm import Population
 from .player import Player
 from .simulator import simulate
+from .settings import simulation_settings
 
 
 #bind settings to variables
@@ -20,6 +21,7 @@ parent_percentage = genetic_algorithm_settings['parent_percentage']
 crossover_type = genetic_algorithm_settings['crossover_type']
 mutation_type = genetic_algorithm_settings['mutation_type']
 mutation_rate = genetic_algorithm_settings['mutation_rate']
+GOAL_SCORE = simulation_settings['goal_score']
 
 
 def main() -> None:
@@ -56,6 +58,11 @@ def main() -> None:
 
         #save the parents
         population.save_parents(parents_folder)
+
+        #end evolution if we have reached our goal
+        if max([player.score for player in population.players]) == GOAL_SCORE:
+            print('Goal score reached, please edit total_generations in settings to reflect how long it took.\n')
+            exit()
 
         #repopulate in preparation to repeat
         population.repopulate(crossover_type, mutation_type, mutation_rate)

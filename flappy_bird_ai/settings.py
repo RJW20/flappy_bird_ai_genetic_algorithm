@@ -24,3 +24,9 @@ genetic_algorithm_settings = {
     'mutation_rate': 0.1,          #probability a gene will mutate
 
 }
+
+simulation_settings = {
+
+    'goal_score': 2000      #we'll stop evolving when we achieve this score
+
+}

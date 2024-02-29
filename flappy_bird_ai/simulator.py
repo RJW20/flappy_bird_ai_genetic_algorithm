@@ -1,4 +1,7 @@
 from .player import Player
+from .settings import simulation_settings
+
+GOAL_SCORE = simulation_settings['goal_score']
 
 
 def simulate(player: Player) -> Player:
@@ -17,7 +20,7 @@ def simulate(player: Player) -> Player:
 
         fitness += 1
 
-        if player.score == 2000:
+        if player.score == GOAL_SCORE:
             break
 
     player.best_score = player.score
