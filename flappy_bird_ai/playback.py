@@ -180,7 +180,7 @@ def playback() -> None:
         pygame.display.flip()
         
         #advance to next frame at chosen speed
-        clock.tick(base_speed * speed_multiplier) / 1000
+        clock.tick(base_speed * speed_multiplier)
 
     pygame.quit()
 
