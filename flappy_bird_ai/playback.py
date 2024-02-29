@@ -53,7 +53,6 @@ def playback() -> None:
     font_height = int(0.06 * game_height)
     score_font = pygame.font.Font(pygame.font.get_default_font(), font_height)
     stats_font = pygame.font.Font(pygame.font.get_default_font(), int(0.7 * font_height))
-    speed = 60
     clock = pygame.time.Clock()
     running = True
 
