@@ -37,13 +37,3 @@ class Player(Bird, BasePlayer):
         
         genome_output = self.genome.propagate(self.vision)
         return round(genome_output[0])      #move takes 0 or 1, genome_output~[0,1]
-
-    def empty_clone(self) -> BasePlayer:
-        """Return a new instance of self's class without a genome."""
-
-        clone = deepcopy(self)
-        clone.fitness = 0
-        clone.best_score = 0
-        clone.genome = None
-
-        return clone

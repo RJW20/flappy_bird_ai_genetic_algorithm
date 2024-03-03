@@ -48,7 +48,7 @@ def playback() -> None:
     game_height = 620
     floor_height = 0.04 * game_height
     screen = pygame.display.set_mode((width, game_height + floor_height))
-    pygame.display.set_caption("Flappy Bird")
+    pygame.display.set_caption("Flappy Bird: Genetic Algorithm")
     pygame.font.init()
     font_height = int(0.06 * game_height)
     score_font = pygame.font.Font(pygame.font.get_default_font(), font_height)
