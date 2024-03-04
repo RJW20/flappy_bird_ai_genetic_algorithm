@@ -12,7 +12,7 @@ Application of the genetic algorithm to the game Flappy Bird.
 4. Enter the virual environment `poetry shell`.
 
 ## Running the Algorithm
-1. Change any settings you want in `flappy_bird_ai/settings.py`. For more information on what they describe see [here](https://github.com/RJW20/genetic_algorithm_template/blob/main/README.md). 
+1. Change any settings you want in `flappy_bird_ai/settings.py`. For more information on what they control see [here](https://github.com/RJW20/genetic_algorithm_template/blob/main/README.md). 
 2. Run the algorithm `poetry run main`.
 3. View the playback of saved history with `poetry run main`.
 
