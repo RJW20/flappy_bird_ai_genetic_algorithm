@@ -1,5 +1,5 @@
 # Flappy Bird AI: Genetic Algorithm
-Application of the genetic algorithm to the game Flappy Bird.
+Application of the Genetic Algorithm to the game Flappy Bird.
 
 ## Basic Requirements
 1. [Python](https://www.python.org/downloads/).
@@ -9,7 +9,7 @@ Application of the genetic algorithm to the game Flappy Bird.
 1. Clone or download the repo `git clone https://github.com/RJW20/flappy_bird_app.git`.
 2. Download the submodules `git submodule update --init`.
 3. Set up the virtual environment `poetry install`.
-4. Enter the virual environment `poetry shell`.
+4. Enter the virtual environment `poetry shell`.
 
 ## Running the Algorithm
 1. Change any settings you want in `flappy_bird_ai/settings.py`. For more information on what they control see [here](https://github.com/RJW20/genetic_algorithm_template/blob/main/README.md). 
