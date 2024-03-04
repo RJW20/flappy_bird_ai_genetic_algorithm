@@ -16,7 +16,7 @@ Application of the genetic algorithm to the game Flappy Bird.
 2. Run the algorithm `poetry run main`.
 3. View the playback of saved history with `poetry run main`.
 
-## My Results
+## Results
 Flappy Bird is a very simple game and is easily beaten by the Genetic Algorithm. Here is a group created in generation 5 passing the 1000 mark:
 
 ![Birds passing 1000](https://i.imgur.com/KgvvAJR.gif)
