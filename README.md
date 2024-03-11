@@ -15,7 +15,7 @@ Every frame the bird can either jump or not jump.
 There are 4 input nodes, 1 output node with sigmoid activation (activation > 0.5 => jump, otherwise don't jump) and no hidden layers.
 
 ### Fitness Function:
-Simply the Bird's score.
+The number of frames the bird has been alive for.
 
 ### Results:
 Ultimately Flappy Bird is a very simple game and is easily beaten by the Genetic Algorithm. Here is a group created in generation 5 passing the 1000 mark:
