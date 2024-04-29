@@ -1,5 +1,3 @@
-from copy import deepcopy
-
 import numpy as np
 
 from flappy_bird_app import Bird
